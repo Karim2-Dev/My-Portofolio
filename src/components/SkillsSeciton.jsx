@@ -2,39 +2,39 @@ import React from "react";
 const skills = [
   {
     name: "JavaScript",
-    src: "/src/assets/Images/skills/javaScirpt.png",
+    src: "/Images/skills/javaScirpt.png",
   },
   {
     name: "React.js",
-    src: "/src/assets/Images/skills/react.png",
+    src: "/Images/skills/react.png",
   },
   {
     name: "Next.js",
-    src: "/src/assets/Images/skills/Next.js.png",
+    src: "/Images/skills/Next.js.png",
   },
   {
     name: "TypeScript",
-    src: "/src/assets/Images/skills/TypeScript.png",
+    src: "/Images/skills/TypeScript.png",
   },
   {
     name: "Tailwind css",
-    src: "/src/assets/Images/skills/tailwind.png",
+    src: "/Images/skills/tailwind.png",
   },
   {
     name: "BootStrap css",
-    src: "/src/assets/Images/skills/bootstrap.png",
+    src: "/Images/skills/bootstrap.png",
   },
   {
     name: "Material UI",
-    src: "/src/assets/Images/skills/materialui.png",
+    src: "/Images/skills/materialui.png",
   },
   {
     name: "Redux",
-    src: "/src/assets/Images/skills/Redux.png",
+    src: "/Images/skills/Redux.png",
   },
   {
     name: "Git/GitHub",
-    src: "/src/assets/Images/skills/github.png",
+    src: "Images/skills/github.png",
   },
 ];
 function SkillsSeciton() {

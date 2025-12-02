@@ -7,7 +7,7 @@ const projects = [
     title: "E-commerce ",
     description:
       "A Beautiful Full E-commerce Store using React and dummyjson API",
-    img: "/src/assets/Images/projects/e-commerce.png",
+    img: "Images/projects/e-commerce.png",
     tags: ["React", "dummyjson", "swiper"],
     demoUrl: "https://e-commercepojectks.netlify.app",
     githubRep: "https://github.com/Karim2-Dev/E-commerce",

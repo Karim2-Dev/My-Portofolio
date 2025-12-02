@@ -36,7 +36,7 @@ function ThemeToggole() {
     <button
       onClick={toggleTheme}
       className={cn(
-        "fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition duration-300",
+        "fixed top-15 right-3 z-50 p-2 rounded-full transition duration-300",
         "focus:outline-hidden"
       )}
     >

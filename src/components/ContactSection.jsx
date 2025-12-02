@@ -1,4 +1,12 @@
-import { Facebook, Instagram, Linkedin, Mail, Phone, Send } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  Send,
+  Locate,
+} from "lucide-react";
 import React, { useState } from "react";
 import { cn } from "../lib/utils";
 import { useToast } from "../hooks/use-toast";
@@ -86,7 +94,7 @@ function ContactSection() {
               {/* LOCATION */}
               <div className="flex items-start  space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />
+                  <Locate className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-medium">Location</h4>
