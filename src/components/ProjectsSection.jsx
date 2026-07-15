@@ -1,19 +1,37 @@
 import { ArrowRight, ExternalLink, Github, GithubIcon } from "lucide-react";
-import React from "react";
+import { getProjects } from "../services/projects";
 
-const projects = [
-  {
-    id: 1,
-    title: "E-commerce ",
-    description:
-      "A Beautiful Full E-commerce Store using React and dummyjson API",
-    img: "Images/projects/e-commerce.png",
-    tags: ["React", "dummyjson", "swiper"],
-    demoUrl: "https://e-commercepojectks.netlify.app",
-    githubRep: "https://github.com/Karim2-Dev/E-commerce",
-  },
-];
+import React, { useEffect, useState } from "react";
+
+// const projects = [
+//   {
+//     id: 1,
+//     title: "E-commerce ",
+//     description:
+//       "A Beautiful Full E-commerce Store using React and dummyjson API",
+//     img: "Images/projects/e-commerce.png",
+//     tags: ["React", "dummyjson", "swiper"],
+//     demoUrl: "https://e-commercepojectks.netlify.app",
+//     githubRep: "https://github.com/Karim2-Dev/E-commerce",
+//   },
+// ];
+
 function ProjectsSection() {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  async function loadProjects() {
+    try {
+      const data = await getProjects();
+      setProjects(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+  useEffect(() => {
+    loadProjects();
+  }, []);
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
@@ -27,53 +45,59 @@ function ProjectsSection() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 gap-8">
-          {projects.map((project, key) => (
-            <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.img}
-                  ali={project.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap  gap-2 mb-1">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+          {projects.map((project, key) => {
+            return loading ? (
+              <p>...loading</p>
+            ) : (
+              <div
+                key={key}
+                className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={project.thumbnail}
+                    alt={project.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
+                <div className="p-6">
+                  <div className="flex flex-wrap  gap-2 mb-1">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                <p className="text-mute-foreground text-sm mb-4">
-                  {project.description}
-                </p>
+                  <h3 className="text-xl font-semibold mb-1">
+                    {project.title}
+                  </h3>
+                  <p className="text-mute-foreground text-sm mb-4">
+                    {project.description}
+                  </p>
 
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duraiton-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a href={project.githubRep} target="_blank">
-                      <Github size={20} />
-                    </a>
+                  <div className="flex justify-between items-center">
+                    <div className="flex space-x-3">
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        className="text-foreground/80 hover:text-primary transition-colors duraiton-300"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                      <a href={project.githubRep} target="_blank">
+                        <Github size={20} />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">
