@@ -83,13 +83,13 @@ function ProjectsSection() {
                   <div className="flex justify-between items-center">
                     <div className="flex space-x-3">
                       <a
-                        href={project.demoUrl}
+                        href={project.live_url}
                         target="_blank"
                         className="text-foreground/80 hover:text-primary transition-colors duraiton-300"
                       >
                         <ExternalLink size={20} />
                       </a>
-                      <a href={project.githubRep} target="_blank">
+                      <a href={project.github_url} target="_blank">
                         <Github size={20} />
                       </a>
                     </div>
